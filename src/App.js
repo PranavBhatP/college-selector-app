@@ -1,12 +1,11 @@
 import { Container, Typography } from '@mui/material';
 import './index.css';
+import Home from './pages/Home';
 
 function App() {
   return (
     <div className="App">
-      <Container sx = {{ bgcolor: "gray",height: '100vh'}}>
-        <Typography variant= 'h2'>Hello World!</Typography>
-      </Container>
+      <Home/>
     </div>
   );
 }
