@@ -6,7 +6,7 @@ import SchoolIcon from '@mui/icons-material/School';
 
 export default function Content() {
   return (
-    <Box sx = {{textAlign: 'center', display:"flex", flexDirection:"column", alignItems:'center',pt:'250px', px: '100px'}}>
+    <Box sx = {{textAlign: 'center', display:"flex", flexDirection:"column", alignItems:'center',pt:'250px', px: '50px'}}>
         <Typography variant="h2"sx = {{fontWeight:'bold'}} gutterBottom>
             Welcome to <span style={{color:"#0858AA"}}>CollegeGo!</span>
         </Typography>

@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, ListItemButton, Stack } from '@mui/material';
+import { useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, ListItemButton, Stack, Link } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import { SupervisedUserCircleRounded, VerifiedUserOutlined } from '@mui/icons-material';
 
@@ -44,34 +44,15 @@ const Navbar = () => {
             <SchoolIcon sx={{ fontSize: 25, marginRight: "5px"}} />
             CollegeGo
           </Typography>
-          {isMobile ? (
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon sx = {{color:"black"}}/>
-            </IconButton>
-          ) : (
-            <Stack spacing={{ sm:2, lg: 2 }} direction="row" useFlexGap flexWrap="wrap">
-                <Button href = '#search' variant = "contained" sx = {{color: "white", backgroundColor: "black", '&:hover': { backgroundColor: '#555' }}}>GET STARTED</Button>
-                <Button href = '/dashboard' variant = "contained" sx = {{color: "white", backgroundColor: "black", '&:hover': { backgroundColor: '#555' }}}>DASHBOARD</Button>
-                <Typography variant='h6'sx={{ color: "black", border: "2px solid", borderRadius: '5px', p:0.5}}>
-                    <VerifiedUserOutlined sx={{ color:"black", fontSize: 20, mt: "5px"}}/>
-                    User1
-                </Typography>            
-            </Stack>
-          )}
+          <Stack spacing={{ xs: 2, sm:2, lg: 2 }} direction="row" useFlexGap flexWrap="wrap">
+            <Button href = '/' sx = {{color: "white", backgroundColor: "black",'&:hover': { backgroundColor: '#555' }}}>HOME</Button>
+            <Typography variant='h6'sx={{ color: "black", border: "2px solid", borderRadius: '5px', p:0.5}}>
+                <VerifiedUserOutlined sx={{ color:"black", fontSize: 20, mt: "5px"}}/>
+                User1
+            </Typography>            
+        </Stack>
         </Toolbar>
       </AppBar>
-      <Drawer
-        anchor="left"
-        open={drawerOpen}
-        onClose={handleDrawerToggle}
-      >
-        {drawer}
-      </Drawer>
     </div>
   );
 };
