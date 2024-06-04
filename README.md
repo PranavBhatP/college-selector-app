@@ -30,10 +30,9 @@ On the local machine
 3. Follow the user flow to utilise the entire UX of the application.
 
 On the vercel app, since the API calls for the Hipo API are made over HTTP and since Vercel doesn't allow insecure content. 
-Steps as of Chrome v91 (6/17/2021):
+Steps to fix this issue, as noted in the StackOverflow post (https://stackoverflow.com/questions/76165560/the-content-must-be-served-over-https):
 
-1. Click the Not secure warning next to the URL
-   enter image description here
+1. Click the Not secure warning next to the URL.
 
 2. Click Site settings .
 
