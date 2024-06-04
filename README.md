@@ -8,8 +8,10 @@ As outlined in the assignment, provided the project is aimed at building a web a
 Tech Stack:
 - React.js 
 - Material UI Components
-- Hipo Worldwide College API 
-User flow:
+- Hipo Worldwide College API.
+
+
+## User flow:
 
 - The user enters the application and searches his/her college from the Autocomplete searchable dropdown menu. The choice is selected and is reflected in th form of a card displaying the college choice and the country.
 
