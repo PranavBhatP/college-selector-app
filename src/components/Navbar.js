@@ -18,24 +18,27 @@ const Navbar = ({ searchResult }) => {
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
+  };  
+  const handleNavigation = (path) => {
+      navigate(path);
   };
-
+  
   const drawer = (
     <div>
       <List>
         <ListItem disablePadding>
-          <ListItemButton>
-              <ListItemText sx = {{color:"black"}}primary="GET STARTED" />
+          <ListItemButton onClick={() => handleNavigation('#search')} sx={{ color: 'black' }}>
+            <ListItemText primary="GET STARTED" />
           </ListItemButton>
         </ListItem>
-        <ListItem>  
-            <ListItemButton disablePadding>
-                <ListItemText primary="DASHBOARD" />
-            </ListItemButton>
+        <ListItem disablePadding>
+          <ListItemButton onClick={() => handleNavigation('/dashboard')} sx={{ color: 'black' }}>
+            <ListItemText primary="DASHBOARD" />
+          </ListItemButton>
         </ListItem>
       </List>
     </div>
-  );
+  )
 
   return (
     <div>
