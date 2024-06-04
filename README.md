@@ -1,7 +1,7 @@
 # College Finder
 
 Assignment submission for React Front-End internship role.
-
+Vercel Link: https://college-selector-app-vercel.vercel.app/ (Read Setup Instructions if issues in the Autocomplete List)
 ## Overview
 As outlined in the assignment provided, the project is aimed at building a web application for selecting from a wide list of colleges from all around the world. The list is quite exhaustive and has more than 10k+ entries. This necessitated usage of techniques like debouncing of API Calls, in order to handle such large search data. The result is then stored in the local storage for persistence.
 
@@ -18,7 +18,7 @@ Tech Stack:
 - The user then clicks on the dashboard button to enter the dashboard menu, where he/she can view the details of the college and the college logo as well. 
 
 ## Setup 
-
+On the local machine
 1. Install dependencies
     ```bash
     npm install
@@ -29,6 +29,17 @@ Tech Stack:
     ```
 3. Follow the user flow to utilise the entire UX of the application.
 
+On the vercel app, since the API calls for the Hipo API are made over HTTP and since Vercel doesn't allow insecure content. 
+Steps as of Chrome v91 (6/17/2021):
+
+1. Click the Not secure warning next to the URL
+   enter image description here
+
+2. Click Site settings .
+
+3. Near the bottom of the list is Insecure content, change this to Allow
+
+4. Close settings, go back to the site, and Refresh the page
 ## Video Presentation of functionalities.
 At the link below:
 
