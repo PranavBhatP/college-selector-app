@@ -4,11 +4,10 @@ import axios from 'axios';
 import debounce from 'lodash.debounce';
 import CollegeCard from './CollegeCard';
 
-function SearchComponent() {
+function SearchComponent({searchResult, setSearchResult}) {
     const [search, setSearch] = useState('');  
     const [searchBox, setSearchBox] = useState('');
     const [univList, setUnivList] = useState([]);
-    const [searchResult, setSearchResult] = useState([]);
     const [errorText, setErrorText] = useState('');
     const fetchUniversities = async (query) => {
         try {
@@ -53,6 +52,7 @@ function SearchComponent() {
         const response = await axios.get(`http://universities.hipolabs.com/search?name=${query}`);
         const result = response.data;
         setSearchResult(result);
+        localStorage.setItem('searchResult', JSON.stringify(result));
     } catch (error) {
         console.error('Error fetching data:', error);
         setErrorText('Unable to fetch the list.');
@@ -62,11 +62,12 @@ function SearchComponent() {
   useEffect(() => {
     if(search){
         fetchResult(search.label)
-        console.log(searchResult);
     } else {
         setSearchResult([])
     }
   }, [search]);
+
+  
 
 //   const handleCollegeSelector = (e) => {
 //     // Your handler logic here
@@ -81,7 +82,7 @@ function SearchComponent() {
         options={univList}
         getOptionLabel={(option) => option.label}
         noOptionsText="Your college could not be found"
-        sx= {{ display: 'flex', minWidth: '300px', width: '80%'}}
+        sx= {{ display: 'flex', minWidth: '300px', width: '80%', py: '40px'}}
         renderOption={(props, option) => (
           <Box component="li" {...props} key={option.id}>
             {option.label}
@@ -95,7 +96,7 @@ function SearchComponent() {
       <Box sx={{ height: 'auto', width: 'auto', py: '20px' }}>
         {searchResult.length > 0 ? (<Typography sx={{ textAlign: 'center' }}>Search successful!</Typography>) : (<Typography>{errorText}</Typography>)}
       </Box>
-      {searchResult.length > 0 ? <CollegeCard result = {searchResult}/> : <p>Select a college for it to show up..</p>}
+      {searchResult.length > 0 ? <CollegeCard searchResult = {searchResult}/> : <p>Select a college for it to show up..</p>}
     </Box>
   );
 }

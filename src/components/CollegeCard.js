@@ -1,40 +1,45 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardActions, Button, Typography, CardMedia } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import { Box, Typography, Button } from '@mui/material';
 
-const CollegeCard = ({ result }) => {
-    const asset = result[0];
+const CollegeCard = ({ searchResult }) => {
+    const asset = searchResult[0];
     const [imgExists, setImgExists] = useState(true);
     let imgUrl;
+
     const fetchUrl = () => {
-        try{
-            imgUrl = asset.domains[0]
+        try {
+            imgUrl = asset.domains[0];
             setImgExists(true);
-        }catch (e) {
+        } catch (e) {
             setImgExists(false);
         }
-    }
-    
+    };
+
+    useEffect(() => {
+        fetchUrl();
+    }, [asset]);
+
     return (
-        <Card sx={{ minWidth: '100px', width: '50%', display:'flex', flexDirection:'column'}}>
-        {imgExists ? (<CardMedia
-            component="img"
-            height="10px"
-            width= "10px"
-            image = {`http://www.google.com/s2/favicons?domain=www.${imgUrl}`}
-            alt="Placeholder"
-        />): (<p>Image Not Found</p>)}
-        <CardContent>
-            <Typography variant="h6" component="div">
-            {asset.name}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            {asset.country}
-            </Typography>
-        </CardContent>
-        <CardActions>
-            <Button size="small">SAVE</Button>
-        </CardActions>
-        </Card>
+        <Box sx={{ minWidth: '100px', width: '50%', display: 'flex', flexDirection: 'column', border: '1px solid lightgray', borderRadius: '8px', overflow: 'hidden', boxShadow: 2, mb: 2 }}>
+            <Box sx={{ height: '150px', backgroundColor: imgExists ? 'transparent' : 'lightgray', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                {imgExists ? (
+                    <img src={`https://logo.clearbit.com/${imgUrl}`} alt="College Logo" style={{ maxWidth: '100%', maxHeight: '100%' }} />
+                ) : (
+                    <Typography variant="body2" color="text.secondary">Image Not Found</Typography>
+                )}
+            </Box>
+            <Box sx={{ p: 2 }}>
+                <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
+                    {asset.name}
+                </Typography>
+                
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
+                <Typography variant="body2" color="text.secondary">
+                    SAVED!
+                </Typography>
+            </Box>
+        </Box>
     );
 };
 

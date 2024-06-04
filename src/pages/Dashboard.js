@@ -1,7 +1,18 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import DashboardNavbar from '../components/DashboardNavbar'
+import { useLocation } from 'react-router-dom';
+import DashboardContent from '../components/DashboardContent';
 function Dashboard() {
+  const [searchResult, setSearchResult] = useState([]);
+
+    useEffect(() => {
+        const savedSearchResult = localStorage.getItem('searchResult');
+        if (savedSearchResult) {
+            setSearchResult(JSON.parse(savedSearchResult));
+            console.log(searchResult);
+        } 
+    }, []);
   return (
     <>
       <Box sx = {{
@@ -14,6 +25,7 @@ function Dashboard() {
       }}
       >
         <DashboardNavbar/>
+        <DashboardContent searchResult={searchResult}/>
       </Box>
     </>
   )

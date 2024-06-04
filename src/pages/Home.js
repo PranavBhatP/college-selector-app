@@ -1,9 +1,16 @@
 import { Box } from '@mui/material'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Content from '../components/Content'
 import SearchComponent from '../components/SearchComponent'
 function Home() {
+  const [searchResult, setSearchResult] = useState([]);
+  useEffect(() => {
+    const savedSearchResult = localStorage.getItem('searchResult');
+    if (savedSearchResult) {
+        setSearchResult(JSON.parse(savedSearchResult));
+    }
+  }, []);
   return (
     <>
       <Box sx = {{
@@ -15,7 +22,7 @@ function Home() {
           // background: 'linear-gradient(to bottom, rgba(0, 0, 255, 0.8) 0%, rgba(0, 0, 255, 0) 20%)',
       }}
       >
-        <Navbar/>
+        <Navbar searchResult = {searchResult}/>
         <Content/>
       </Box>
       <Box sx = {{
@@ -25,7 +32,7 @@ function Home() {
         flexDirection: 'column',
         // background: 'linear-gradient(to bottom, rgba(0, 0, 255, 0.8) 0%, rgba(0, 0, 255, 0) 20%)',
       }}>
-        <SearchComponent/>
+        <SearchComponent searchResult={searchResult} setSearchResult = {setSearchResult}/>
       </Box>
     </>
   )

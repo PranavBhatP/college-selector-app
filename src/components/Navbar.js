@@ -8,11 +8,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useMediaQuery, useTheme, Drawer, List, ListItem, ListItemText, ListItemButton, Stack } from '@mui/material';
 import SchoolIcon from '@mui/icons-material/School';
 import { SupervisedUserCircleRounded, VerifiedUserOutlined } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ searchResult }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -56,7 +57,15 @@ const Navbar = () => {
           ) : (
             <Stack spacing={{ sm:2, lg: 2 }} direction="row" useFlexGap flexWrap="wrap">
                 <Button href = '#search' variant = "contained" sx = {{color: "white", backgroundColor: "black", '&:hover': { backgroundColor: '#555' }}}>GET STARTED</Button>
-                <Button href = '/dashboard' variant = "contained" sx = {{color: "white", backgroundColor: "black", '&:hover': { backgroundColor: '#555' }}}>DASHBOARD</Button>
+                <Button 
+                  variant = "contained" 
+                  sx = {{color: "white", backgroundColor: "black", '&:hover': { backgroundColor: '#555' }}}
+                  onClick={()=> {
+                      navigate('/dashboard',{state: { searchResult: searchResult }});
+                  }}
+                >
+                  DASHBOARD</Button>
+                
                 <Typography variant='h6'sx={{ color: "black", border: "2px solid", borderRadius: '5px', p:0.5}}>
                     <VerifiedUserOutlined sx={{ color:"black", fontSize: 20, mt: "5px"}}/>
                     User1
