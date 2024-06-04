@@ -28,3 +28,9 @@ Tech Stack:
     npm start
     ```
 3. Follow the user flow to utilise the entire UX of the application.
+
+## Video Presentation of functionalities.
+At the link below:
+
+https://youtu.be/4h5Dth-ICQY
+
