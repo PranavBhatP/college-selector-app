@@ -1,7 +1,7 @@
 # College Finder
 
-Assignment submission for React Front-End internship role.
-Vercel Link: https://college-selector-app-vercel.vercel.app/ (Read Setup Instructions if issues in the Autocomplete List)
+- Assignment submission for React Front-End internship role.
+- Vercel Link: https://college-selector-app-vercel.vercel.app/ (Read Setup Instructions if issues in the Autocomplete List)
 ## Overview
 As outlined in the assignment provided, the project is aimed at building a web application for selecting from a wide list of colleges from all around the world. The list is quite exhaustive and has more than 10k+ entries. This necessitated usage of techniques like debouncing of API Calls, in order to handle such large search data. The result is then stored in the local storage for persistence.
 
