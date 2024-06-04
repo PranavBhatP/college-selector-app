@@ -19,22 +19,22 @@ const Navbar = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const drawer = (
-    <div>
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-              <ListItemText sx = {{color:"black"}}primary="GET STARTED" />
-          </ListItemButton>
-        </ListItem>
-        <ListItem>  
-            <ListItemButton disablePadding>
-                <ListItemText primary="DASHBOARD" />
-            </ListItemButton>
-        </ListItem>
-      </List>
-    </div>
-  );
+  // const drawer = (
+  //   <div>
+  //     <List>
+  //       <ListItem disablePadding>
+  //         <ListItemButton>
+  //             <ListItemText sx = {{color:"black"}}primary="GET STARTED" />
+  //         </ListItemButton>
+  //       </ListItem>
+  //       <ListItem>  
+  //           <ListItemButton disablePadding>
+  //               <ListItemText primary="DASHBOARD" />
+  //           </ListItemButton>
+  //       </ListItem>
+  //     </List>
+  //   </div>
+  // );
 
   return (
     <div>

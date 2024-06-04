@@ -10,7 +10,7 @@ function Home() {
     if (savedSearchResult) {
         setSearchResult(JSON.parse(savedSearchResult));
     }
-  }, []);
+  }, []); // Retreieve search results from the localStorage to ensure persistence.
   return (
     <>
       <Box sx = {{

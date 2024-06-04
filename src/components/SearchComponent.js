@@ -22,7 +22,7 @@ function SearchComponent({searchResult, setSearchResult}) {
         setErrorText('Unable to fetch the list.');
         }
     };
-
+    //DEBOUNCE Implementation using 'lodash'.
   const debouncedFetch = debounce(fetchUniversities, 300); // I'm using 500ms delay for debounce of the API calls, to ensure better performance.
 
   useEffect(() => {
@@ -37,9 +37,12 @@ function SearchComponent({searchResult, setSearchResult}) {
       debouncedFetch.cancel();
     };
   }, [searchBox]);
+
+  // Handles the searcbox raw text input.
   const handleSearchBoxChange = (event, value) => {
     setSearchBox(value);
   };
+  //Set the search only after an option is finally selected
   const handleOptionChange = (event, value) => {
     if (value) {
       setSearch(value);
@@ -76,6 +79,7 @@ function SearchComponent({searchResult, setSearchResult}) {
   return (
     <Box id = "search" sx={{ borderTop: '1px solid lightgray', textAlign: 'center', py: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent:'center'}}>
       <Typography variant="h3" sx={{ color: 'black', fontWeight: 'bold' }}>College Finder 👇</Typography>
+      {/* Automcomplete componenet implementation */}
       <Autocomplete
         disablePortal
         id="univ-list"

@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ searchResult }) => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); //Responsive design for mobile devices.
   const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 

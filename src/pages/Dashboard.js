@@ -4,6 +4,7 @@ import DashboardNavbar from '../components/DashboardNavbar'
 import { useLocation } from 'react-router-dom';
 import DashboardContent from '../components/DashboardContent';
 function Dashboard() {
+  //Dashboard derives searchResult from the local storage itself.
   const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {

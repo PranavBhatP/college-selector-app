@@ -2,7 +2,7 @@ import { Grid, Typography, Box } from '@mui/material';
 import React from 'react';
 
 const DashboardContent = ({ searchResult }) => {
-
+    //Main content display in the dashboard, to edit the search results we can alter the search.
     const hasData = searchResult && searchResult.length > 0;
     const hasDomains = hasData && searchResult[0].domains && searchResult[0].domains.length > 0;
     

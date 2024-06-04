@@ -5,7 +5,7 @@ import { Route, Routes} from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 function App() {
   return (
-    <div className="App">
+    <div className="App"> { /* React router for handling routes.*/}
       <Routes>
         <Route exact path = '/' element = {<Home/>}/>          
         <Route exact path = '/dashboard' element = {<Dashboard/>}/>

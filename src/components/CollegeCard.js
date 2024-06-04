@@ -5,7 +5,7 @@ const CollegeCard = ({ searchResult }) => {
     const asset = searchResult[0];
     const [imgExists, setImgExists] = useState(true);
     let imgUrl;
-
+    //Handles API fallbacks and generate a card.
     const fetchUrl = () => {
         try {
             imgUrl = asset.domains[0];
@@ -32,7 +32,9 @@ const CollegeCard = ({ searchResult }) => {
                 <Typography variant="h6" component="div" sx={{ fontWeight: 'bold' }}>
                     {asset.name}
                 </Typography>
-                
+                <Typography variant="p" component="div" sx={{ color:"gray" }}>
+                    {asset.country}
+                </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
                 <Typography variant="body2" color="text.secondary">
